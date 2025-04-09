@@ -1,8 +1,16 @@
 #include <iostream>
 int main (void) {
-    int NUM = 10;
+   const int NUM = 10;
     int guessed_number;
     std::cout << " Adivina un núnmero entre 1 y 100: \n";
     std::cin >> guessed_number;
+
+    if (guessed_number == NUM) {
+        std::cout << "Adivinaste!!!\n";
+    } else if(guessed_number > NUM) {
+        std::cout << "Te pasaste\n"; 
+    } else { 
+        std::cout << "Te falta\n"
+    }
     return 0;
  }
