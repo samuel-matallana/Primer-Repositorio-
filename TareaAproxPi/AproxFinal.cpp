@@ -6,7 +6,7 @@ void Pi_aprox( int n_deseada);
 
 int main(void)
 {
-    int n_deseada = 20;
+    int n_deseada = 21;
    
      
     std::cout << "Aproximación de pi usando métodos númericos\n";
@@ -25,7 +25,7 @@ int main(void)
 // Implementanding
 void Pi_aprox( int n_deseada)
 {
-    double pi_aprox = 0.0;
+    double pi_aprox = 3.1333333333333333;
     
 
 
@@ -33,7 +33,7 @@ void Pi_aprox( int n_deseada)
     //en el for por que apenas iguale el deseado, se para el for
     
 
-    for (int n = 0; n < n_deseada; n++)
+    for (int n = 1; n < n_deseada; n++)
     { 
      
         double termino = (1.0 / pow(16, n)) * ((4.0 / ((8 * n) + 1)) - (2.0 / ((8 * n) + 4)) - (1.0 / ((8 * n) + 5)) - (1.0 / ((8 * n) + 6)));
