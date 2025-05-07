@@ -1,4 +1,25 @@
-#include "prime_utils.h"
+
+#include <iostream>
+#include <cmath>
+#include <string>
+// declaration 
+bool isprime(long n);
+
+int main(int argc, char **argv){
+
+    long vmax = std::stol(argv[1]);
+    long sum = 0;
+
+ // find primes
+    for (long ii = 2; ii <= vmax; ii++) {
+        if (isprime(ii) == true) {
+	    sum += ii;}
+        }
+         std::cout << sum  <<"\n";
+return 0;
+    } 
+
+
 
 // implementation
 bool isprime(long n) {

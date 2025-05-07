@@ -3,4 +3,5 @@
 #include <cmath>
 #include <string>
 
-bool isprime(long long n);
+
+long long gcd( long long a, long long b);

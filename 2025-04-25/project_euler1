@@ -1,0 +1,16 @@
+#include "prime_utils.h" 
+// declaration 
+int main(int argc, char **argv){
+
+    long vmax = std::stol(argv[1]);
+    long sum = 0;
+
+ // find primes
+    for (long ii = 2; ii <= vmax; ii++) {
+        if (isprime(ii) == true) {
+	    sum += ii;}
+        }
+         std::cout << sum  <<"\n";
+return 0;
+    } 
+
