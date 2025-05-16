@@ -14,3 +14,5 @@ double richardson_t(double inf, double sup, int steps, fptr f, algptr alg, int a
 
 double gauss2 (double inf, double sup, fptr f);
 double gauss3 (double inf, double sup, fptr f);                             
+double gauss5 (double inf, double sup, fptr f);
+double gauss7 (double inf, double sup, fptr f);

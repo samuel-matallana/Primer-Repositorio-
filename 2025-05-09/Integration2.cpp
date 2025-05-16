@@ -19,7 +19,8 @@ int main(void)
 
     std::cout << richardson_t(-2.0, 2.0, 1000000, f, simpson, 4) << "\n";
 
-    std::cout << gauss3(-2.0, 2.0, f) << "\n";
+    std::cout << gauss5(-2.0, 2.0, f) << "\n";
+     std::cout << gauss7(-2.0, 2.0, f) << "\n";
 
     return 0;
 }
