@@ -16,7 +16,8 @@ int main(int argc, char **argv){
     int vmax = std::stoi(argv[1]);
 
     for(int ii = 2; ii <= vmax; ++ii) {
-        if (isprime(ii) == true and vmax % isprime(ii) == 0) {
+        if (isprime(ii) == true and vmax % ii == 0) {
+        vmax /= ii;
             std::cout << "( " << ii << " ) ";
         }
     }

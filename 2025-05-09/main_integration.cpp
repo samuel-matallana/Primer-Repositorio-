@@ -4,7 +4,8 @@
 #include "integration.h"
 
 double f(double x) {
-    return std::sin(std::exp(x));
+        return 7*x*x*x -8*x*x + 3*x + 3;
+
 }
 
 double relative_error(double exact, double approx) {
@@ -12,16 +13,13 @@ double relative_error(double exact, double approx) {
 }
 
 int main(void) {
-    const double a = -5.0, b = 5.0;
-    const double exact_result = 1.56898093601156;
+    const double a = -2.0, b = 2.0;
+    const double exact_result = -92.0/3.0;
 
     std::ofstream file("errores.txt");
     file << "# N h fe ce rfe rce\n";
 
-     for (int N : {2, 4, 6, 8, 10, 26, 40, 56, 70, 86, 100, 250, 400, 550, 700, 850, 1000,
-2500, 4000, 5500, 7000, 8500, 10000, 25000, 40000, 55000, 70000, 85000, 100000,
-250000, 400000, 550000, 700000, 850000, 1000000, 1200000, 1400000, 1600000, 1800000, 2000000
-
+     for (int N : {100
 }) {
         double h = (b - a) / N;
 
