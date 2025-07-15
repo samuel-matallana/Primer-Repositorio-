@@ -1,10 +1,10 @@
 #pragma once
-// boundary.h
+
 #include <valarray>
 #include <iostream>
 
 class Boundary{
-  double RMAX_{0.0}, EN_{0.0} , ET_{0.0};; // RMAX is the radius of the sphere, EN is the normal restitution coefficient 
+  double RMAX_{0.0}, EN_{0.0}, ET_{0.0}; // RMAX: radius of the sphere, EN: normal restitution coefficient, ET: tangential rest. coeff
   std::valarray<double> C_{0.0, 0.0, 0.0}; // Sphere center
 
   public:
@@ -21,17 +21,20 @@ class Boundary{
     void apply(particle_array_t & parray) {
       // applySphericalConstraint
       for (auto & p : parray) {
-        // TODO
-        // === BEGIN MARK SCHEME ===
         std::valarray<double> Rprime = p.R - C_;
         double rprime = std::sqrt((Rprime*Rprime).sum());
         double delta = rprime + p.rad - RMAX_;
         if (delta > 0) {
             std::valarray<double> N = Rprime/rprime;
+
+            double Vn = (p.V * N).sum();
+            std::valarray<double> V_normal = Vn * N;
+            std::valarray<double> V_tangent = p.V - V_normal;
+
             p.R = p.R - delta*N;
-            p.V = ET_*p.V - (1 + EN_) * (p.V*N).sum() * N;
+
+            p.V = -EN_ * V_normal + ET_ * V_tangent;
         }
-        // === END MARK SCHEME ===
       }
     }
 };

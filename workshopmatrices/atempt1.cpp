@@ -64,7 +64,6 @@ int main(int argc, char** argv) {
     aqueo(aureliox, x, y, z);
 
     std::vector<double> aurelioney = antoniodey(thetay);
-    aqueo(aurelioney, x, y, z);
 
     std::vector<double> aurelionez = antoniodez(thetaz);
     aqueo(aurelionez, x, y, z);

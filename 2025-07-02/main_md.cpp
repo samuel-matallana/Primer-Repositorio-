@@ -10,7 +10,8 @@ void initial_conditions(std::vector<Particle> & particles);
 
 int main(int argc, char **argv) {
   std::vector<Particle> bodies;
-  bodies.resize(1); // only one particle for now
+  bodies.resize(2); // only one particle for now
+
 
   // parameters
   std::map<std::string, double> p;
@@ -58,4 +59,4 @@ void initial_conditions(std::vector<Particle> & particles)
   particles[0].V[2] = 0.0; //4.9876; //3.987; // z is upwards, x to the right
   particles[0].rad  = 0.103;
   particles[0].mass = 0.337;
-}
+

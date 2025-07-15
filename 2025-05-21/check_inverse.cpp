@@ -1,4 +1,4 @@
-#include "Matrix_utils.h"
+#include "matrix_utils.h"
 
 int main (){
     int N = 2;

@@ -1,7 +1,8 @@
 #pragma once
-// collider.h
 #include <map>
 #include <string>
+#include <valarray>
+
 
 class Collider {
   std::map<std::string, double> params; // parameters to compute the forces
@@ -22,5 +23,20 @@ class Collider {
         //TODO: force with floor
 
       }
+
+      // force with other particles
+      for (int ip = 0; ip < parray.size(); ip++) {
+        for (int jp = ip + 1; jp < parray.size(); jp++) {
+          std::valarray<double> Rij{0.0, 0.0, 0.0};
+          Rij = parray[jp].R - parray[ip].R; 
+          double rij = std::sqrt((Rij*Rij).sum());
+          double delta = parray[ip].rad + parray[jp].rad - rij;
+          if (delta > 0) {
+            parray[jp].F += params["K"]*delta*Rij/rij;
+            parray[ip].F -= params["K"]*delta*Rij/rij;
+          }
+        }
+      }
+
     }
 };

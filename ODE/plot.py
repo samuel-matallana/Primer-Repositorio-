@@ -20,5 +20,5 @@ plt.title('Velocidad vs Posición - Euler y Heun')
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
-plt.savefig('solucion_heun_euler.png')
+plt.savefig('solucion_heun_euler.pdf')
 
