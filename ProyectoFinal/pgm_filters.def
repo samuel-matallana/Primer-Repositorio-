@@ -1,0 +1,32 @@
+Bootstrap: docker
+From: ubuntu:24.04
+
+%environment
+    export LC_ALL=C
+    export DEBIAN_FRONTEND=noninteractive
+
+%post
+    apt update && apt install -y \
+        build-essential \
+        g++ \
+        cmake \
+        curl \
+        git \
+        && rm -rf /var/lib/apt/lists/*
+
+    # Copia tu código fuente dentro del contenedor
+    mkdir /app
+    cp /mnt/pgm_filters.cpp /app/pgm_filters.cpp
+    cd /app
+    g++ -std=c++17 -Wall -o pgm_filters pgm_filters.cpp
+
+%files
+    pgm_filters.cpp /mnt/pgm_filters.cpp
+
+%labels
+    Author samatallana
+    Version 1.0
+
+%runscript
+    exec /app/pgm_filters "$@"
+
